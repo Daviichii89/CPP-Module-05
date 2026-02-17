@@ -20,14 +20,14 @@ void testInvalidBureaucrats() {
 	
 	try {
 		Bureaucrat b_bad1("TooHigh", 0);
-		std::cout << "ERROR: No exception thrown for grade 0" << std::endl;
+		std::cout << "Test failed: expected exception for invalid grade 0" << std::endl;
 	} catch (Bureaucrat::GradeTooHighException& e) {
 		std::cout << "Exception caught correctly: " << e.what() << std::endl;
 	}
 	
 	try {
 		Bureaucrat b_bad2("TooLow", 151);
-		std::cout << "ERROR: No exception thrown for grade 151" << std::endl;
+		std::cout << "Test failed: expected exception for invalid grade 151" << std::endl;
 	} catch (Bureaucrat::GradeTooLowException& e) {
 		std::cout << "Exception caught correctly: " << e.what() << std::endl;
 	}
@@ -45,8 +45,9 @@ void testIncrementGrade() {
 		b.incrementGrade();
 		std::cout << "After incrementing again: " << b << std::endl;
 		
+		std::cout << "Incrementing again one last time" << std::endl;
 		b.incrementGrade();
-		std::cout << "ERROR: No exception thrown when trying to increment from grade 1" << std::endl;
+		std::cout << "Test failed: expected exception when incrementing from grade 1" << std::endl;
 	} catch (Bureaucrat::GradeTooHighException& e) {
 		std::cout << "Exception caught correctly: " << e.what() << std::endl;
 	}
@@ -64,8 +65,9 @@ void testDecrementGrade() {
 		b.decrementGrade();
 		std::cout << "After decrementing again: " << b << std::endl;
 		
+		std::cout << "Decrementing again one last time" << std::endl;
 		b.decrementGrade();
-		std::cout << "ERROR: No exception thrown when trying to decrement from grade 150" << std::endl;
+		std::cout << "Test failed: expected exception when decrementing from grade 150" << std::endl;
 	} catch (Bureaucrat::GradeTooLowException& e) {
 		std::cout << "Exception caught correctly: " << e.what() << std::endl;
 	}
