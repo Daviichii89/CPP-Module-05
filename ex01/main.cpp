@@ -12,7 +12,7 @@ int main() {
         bob.signForm(form);
         std::cout << form << std::endl;
     } catch (std::exception& e) {
-        std::cout << "Error: " << e.what() << std::endl;
+        std::cerr << "Error: " << e.what() << std::endl;
     }
 
     std::cout << "\n===== TEST 2: Sign form with insufficient grade =====" << std::endl;
@@ -24,7 +24,7 @@ int main() {
         low.signForm(form);
         std::cout << form << std::endl;
     } catch (std::exception& e) {
-        std::cout << "Error: " << e.what() << std::endl;
+        std::cerr << "Error: " << e.what() << std::endl;
     }
 
     std::cout << "\n===== TEST 3: Invalid form grades =====" << std::endl;

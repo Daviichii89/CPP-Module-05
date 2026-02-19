@@ -11,7 +11,7 @@ void testValidBureaucrats() {
 		std::cout << b2 << std::endl;
 		std::cout << b3 << std::endl;
 	} catch (std::exception& e) {
-		std::cout << "Unexpected error: " << e.what() << std::endl;
+		std::cerr << "Unexpected error: " << e.what() << std::endl;
 	}
 }
 
@@ -20,14 +20,14 @@ void testInvalidBureaucrats() {
 	
 	try {
 		Bureaucrat b_bad1("TooHigh", 0);
-		std::cout << "Test failed: expected exception for invalid grade 0" << std::endl;
+		std::cerr << "Test failed: expected exception for invalid grade 0" << std::endl;
 	} catch (Bureaucrat::GradeTooHighException& e) {
 		std::cout << "Exception caught correctly: " << e.what() << std::endl;
 	}
 	
 	try {
 		Bureaucrat b_bad2("TooLow", 151);
-		std::cout << "Test failed: expected exception for invalid grade 151" << std::endl;
+		std::cerr << "Test failed: expected exception for invalid grade 151" << std::endl;
 	} catch (Bureaucrat::GradeTooLowException& e) {
 		std::cout << "Exception caught correctly: " << e.what() << std::endl;
 	}
@@ -47,7 +47,7 @@ void testIncrementGrade() {
 		
 		std::cout << "Incrementing again one last time" << std::endl;
 		b.incrementGrade();
-		std::cout << "Test failed: expected exception when incrementing from grade 1" << std::endl;
+		std::cerr << "Test failed: expected exception when incrementing from grade 1" << std::endl;
 	} catch (Bureaucrat::GradeTooHighException& e) {
 		std::cout << "Exception caught correctly: " << e.what() << std::endl;
 	}
@@ -67,7 +67,7 @@ void testDecrementGrade() {
 		
 		std::cout << "Decrementing again one last time" << std::endl;
 		b.decrementGrade();
-		std::cout << "Test failed: expected exception when decrementing from grade 150" << std::endl;
+		std::cerr << "Test failed: expected exception when decrementing from grade 150" << std::endl;
 	} catch (Bureaucrat::GradeTooLowException& e) {
 		std::cout << "Exception caught correctly: " << e.what() << std::endl;
 	}
@@ -93,7 +93,7 @@ void testCopyAndAssignment() {
 		std::cout << "Assigned (unchanged): " << assigned << std::endl;
 
 	} catch (std::exception& e) {
-		std::cout << "Error: " << e.what() << std::endl;
+		std::cerr << "Error: " << e.what() << std::endl;
 	}
 }
 
